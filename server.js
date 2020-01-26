@@ -4,10 +4,11 @@ const cors = require("cors");
 const knex = require("knex")({
   client: "pg",
   connection: {
-    host: "127.0.0.1",
-    user: "Straus",
-    password: "",
-    database: "facerecognitionbrain"
+    host: process.env.DATABASE_URL,
+    ssl: true
+    // user: "Straus",
+    // password: "",
+    // database: "facerecognitionbrain"
   }
 });
 const clarifai = require("clarifai");
