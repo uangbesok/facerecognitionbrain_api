@@ -18,7 +18,6 @@ const predictClarifai = new clarifai.App({
 
 const saltRounds = 10;
 const app = express();
-const port = 3000;
 
 app.use(express.json());
 app.use(cors());
@@ -122,6 +121,8 @@ app.put("/image", (req, res) => {
     })
     .catch(error => res.status(404).json("Error. Unable to get count."));
 });
+
+const port = process.env.PORT || 3000;
 
 app.listen(port, () =>
   console.log(`Server is running and listening on port ${port}!`)
